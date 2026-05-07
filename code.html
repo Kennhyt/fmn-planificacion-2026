@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>POA 2026 - Módulo de Notificaciones Educativas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .font-headline-md { font-family: 'Public Sans', sans-serif; }
+        .font-title-sm { font-family: 'Public Sans', sans-serif; }
+        .font-display-lg { font-family: 'Public Sans', sans-serif; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "primary-fixed": "#d7e2ff",
+                "surface-bright": "#f7fafc",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#00210f",
+                "secondary-fixed-dim": "#e9c176",
+                "on-tertiary-container": "#49a46d",
+                "surface": "#f7fafc",
+                "background": "#f7fafc",
+                "on-secondary-fixed-variant": "#5d4201",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary": "#ffffff",
+                "inverse-on-surface": "#eef1f3",
+                "error-container": "#ffdad6",
+                "outline": "#75777e",
+                "on-secondary-fixed": "#261900",
+                "on-background": "#181c1e",
+                "surface-container-highest": "#e0e3e5",
+                "surface-container-high": "#e5e9eb",
+                "inverse-surface": "#2d3133",
+                "on-tertiary-fixed-variant": "#00522d",
+                "surface-dim": "#d7dadc",
+                "surface-container-low": "#f1f4f6",
+                "secondary-container": "#fed488",
+                "surface-container": "#ebeef0",
+                "primary-container": "#1a2b48",
+                "on-primary-fixed-variant": "#374765",
+                "secondary-fixed": "#ffdea5",
+                "on-primary-fixed": "#081b38",
+                "tertiary-fixed-dim": "#7ed99e",
+                "outline-variant": "#c5c6ce",
+                "surface-variant": "#e0e3e5",
+                "on-surface": "#181c1e",
+                "on-primary-container": "#8293b5",
+                "on-secondary-container": "#785a1a",
+                "on-error-container": "#93000a",
+                "tertiary": "#001c0c",
+                "primary-fixed-dim": "#b6c7eb",
+                "primary": "#031632",
+                "surface-tint": "#4e5f7e",
+                "inverse-primary": "#b6c7eb",
+                "on-surface-variant": "#44474d",
+                "tertiary-fixed": "#9af6b8",
+                "tertiary-container": "#00331a",
+                "on-error": "#ffffff",
+                "on-primary": "#ffffff",
+                "secondary": "#775a19",
+                "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "container-padding": "24px",
+                "section-margin": "32px",
+                "component-gap": "12px",
+                "unit": "4px",
+                "gutter": "20px"
+              },
+              "fontFamily": {
+                "title-sm": ["Public Sans"],
+                "body-sm": ["Inter"],
+                "label-caps": ["Inter"],
+                "display-lg": ["Public Sans"],
+                "body-base": ["Inter"],
+                "headline-md": ["Public Sans"],
+                "data-tabular": ["Inter"]
+              },
+              "fontSize": {
+                "title-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "display-lg": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-base": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "data-tabular": ["14px", {"lineHeight": "1", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface-bright dark:bg-surface-container-high border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center px-container-padding py-unit w-full sticky top-0 z-50">
+<div class="flex items-center gap-component-gap">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container overflow-hidden">
+<span class="material-symbols-outlined">school</span>
+</div>
+<h1 class="text-headline-md font-headline-md text-primary dark:text-primary-fixed tracking-tight">POA 2026</h1>
+</div>
+<div class="flex items-center gap-section-margin">
+<nav class="hidden md:flex gap-container-padding">
+<span class="text-on-surface-variant dark:text-outline-variant font-label-caps cursor-pointer hover:bg-surface-container-low transition-colors px-2 py-1">TABLERO</span>
+<span class="text-primary dark:text-secondary-fixed font-bold font-label-caps cursor-pointer hover:bg-surface-container-low transition-colors px-2 py-1">NOTIFICACIONES</span>
+<span class="text-on-surface-variant dark:text-outline-variant font-label-caps cursor-pointer hover:bg-surface-container-low transition-colors px-2 py-1">PROGRAMAS</span>
+</nav>
+<div class="flex items-center gap-unit cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">account_circle</span>
+</div>
+</div>
+</header>
+<div class="flex min-h-[calc(100vh-64px)]">
+<!-- NavigationDrawer -->
+<aside class="hidden md:flex flex-col h-full w-80 bg-surface dark:bg-inverse-surface shadow-md py-section-margin gap-unit sticky top-16">
+<div class="px-6 mb-6">
+<p class="font-title-sm text-title-sm text-primary dark:text-primary-fixed">Gestión Educativa</p>
+<p class="text-body-sm text-on-surface-variant opacity-70">Red de Museos y Escuelas</p>
+</div>
+<nav class="flex flex-col gap-unit">
+<div class="text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 flex items-center gap-3 hover:bg-surface-variant transition-all cursor-pointer rounded-lg">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-base text-body-base">Tablero Control</span>
+</div>
+<div class="text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 flex items-center gap-3 hover:bg-surface-variant transition-all cursor-pointer rounded-lg">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-body-base text-body-base">Contenido Pedagógico</span>
+</div>
+<div class="bg-primary-container text-on-primary-container dark:bg-secondary-container dark:text-on-secondary-container rounded-lg mx-2 px-4 py-3 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-body-base text-body-base font-semibold">Notificaciones</span>
+</div>
+<div class="text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 flex items-center gap-3 hover:bg-surface-variant transition-all cursor-pointer rounded-lg">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-base text-body-base">Impacto en Comunas</span>
+</div>
+<div class="text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 flex items-center gap-3 hover:bg-surface-variant transition-all cursor-pointer rounded-lg">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-base text-body-base">Centro de Reportes</span>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-4 mx-2">
+<div class="text-on-surface-variant dark:text-surface-variant px-4 py-3 flex items-center gap-3 hover:bg-surface-variant transition-all cursor-pointer rounded-lg">
+<span class="material-symbols-outlined">help_center</span>
+<span class="font-body-base text-body-base">Ayuda Docente</span>
+</div>
+</div>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-container-padding max-w-7xl mx-auto w-full">
+<header class="mb-section-margin">
+<h2 class="text-display-lg font-display-lg text-primary mb-unit">Alertas de Impacto Educativo</h2>
+<p class="text-body-base text-on-surface-variant">Monitoreo de talleres, cierres pedagógicos y participación comunitaria.</p>
+</header>
+<!-- Status Summary Cards (Bento Grid Style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-section-margin">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-container-padding shadow-sm">
+<div class="flex items-center justify-between mb-unit">
+<span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-caps text-on-tertiary-container bg-tertiary-fixed-dim/20 px-2 py-0.5 rounded-full">Validado</span>
+</div>
+<p class="text-display-lg font-display-lg text-primary">18</p>
+<p class="text-body-sm text-on-surface-variant">Talleres Aprobados</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-container-padding shadow-sm">
+<div class="flex items-center justify-between mb-unit">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<span class="text-label-caps text-on-secondary-container bg-secondary-container/40 px-2 py-0.5 rounded-full">Pendientes</span>
+</div>
+<p class="text-display-lg font-display-lg text-primary">05</p>
+<p class="text-body-sm text-on-surface-variant">Cierres de Mensuales</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-container-padding shadow-sm">
+<div class="flex items-center justify-between mb-unit">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">group_off</span>
+<span class="text-label-caps text-on-error-container bg-error-container/60 px-2 py-0.5 rounded-full">Crítico</span>
+</div>
+<p class="text-display-lg font-display-lg text-primary">02</p>
+<p class="text-body-sm text-on-surface-variant">Duplicidades en Comunas</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-container-padding shadow-sm">
+<div class="flex items-center justify-between mb-unit">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="text-label-caps text-on-primary-fixed-variant bg-primary-fixed/50 px-2 py-0.5 rounded-full">MARZO 2026</span>
+</div>
+<p class="text-display-lg font-display-lg text-primary">08d</p>
+<p class="text-body-sm text-on-surface-variant">Para Cierre Mensual</p>
+</div>
+</div>
+<!-- Detailed Notifications List -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="px-container-padding py-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="text-title-sm font-title-sm text-primary">Gestión de Actividades y Alertas</h3>
+<div class="flex gap-unit">
+<button class="px-3 py-1 text-label-caps text-primary border border-primary rounded-lg hover:bg-primary hover:text-white transition-colors">Marcar todo como leído</button>
+</div>
+</div>
+<div class="divide-y divide-outline-variant">
+<!-- Quarterly Goal Alert Item -->
+<div class="p-container-padding flex gap-container-padding hover:bg-primary-container/5 transition-colors group">
+<div class="flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">stadium</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-unit">
+<span class="text-label-caps text-primary-container font-bold">CIERRE DE META TRIMESTRAL (ACCIÓN 2 - FERIAS)</span>
+<span class="text-body-sm text-on-surface-variant">Hace 2 min</span>
+</div>
+<h4 class="text-body-base font-semibold text-primary mb-1">Preparación de Ferias Educativas I Trimestre 2026</h4>
+<p class="text-body-sm text-on-surface-variant mb-4">Se aproxima la fecha límite para reportar el alcance de la Acción 2. Es necesario consolidar el número de participantes de las ferias zonales para el cierre del primer trimestre.</p>
+<div class="flex gap-component-gap">
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-body-sm font-medium hover:opacity-90 transition-opacity flex items-center gap-unit">
+<span class="material-symbols-outlined text-[18px]">assignment</span> Cargar Reporte Trimestral
+                            </button>
+<button class="text-primary px-4 py-2 rounded-lg text-body-sm font-medium border border-outline-variant hover:bg-surface-variant transition-colors">Ver objetivos</button>
+</div>
+</div>
+</div>
+<!-- Monthly Goal Alert Item -->
+<div class="p-container-padding flex gap-container-padding hover:bg-secondary-container/5 transition-colors group">
+<div class="flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_city</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-unit">
+<span class="text-label-caps text-secondary font-bold">CIERRE DE META MENSUAL (COMUNAS)</span>
+<span class="text-body-sm text-on-surface-variant">Hace 10 min</span>
+</div>
+<h4 class="text-body-base font-semibold text-primary mb-1">Validación de Actividades en Ejes Comunales</h4>
+<p class="text-body-sm text-on-surface-variant mb-4">Pendiente la confirmación de la meta mensual de atención directa en comunas. Faltan 3 reportes zonales para completar el indicador de impacto de marzo.</p>
+<div class="flex gap-component-gap">
+<button class="bg-secondary text-white px-4 py-2 rounded-lg text-body-sm font-medium hover:opacity-90 transition-opacity">Validar Meta Mensual</button>
+</div>
+</div>
+</div>
+<!-- Comunas Alert Item -->
+<div class="p-container-padding flex gap-container-padding hover:bg-error-container/10 transition-colors group">
+<div class="flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group_add</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-unit">
+<span class="text-label-caps text-error font-bold">DETECCIÓN DE DUPLICIDAD EN COMUNAS</span>
+<span class="text-body-sm text-on-surface-variant">Hace 15 min</span>
+</div>
+<h4 class="text-body-base font-semibold text-primary mb-1">Registro duplicado en beneficiarios del Sector "La Esperanza"</h4>
+<p class="text-body-sm text-on-surface-variant mb-4">Se detectaron 15 estudiantes registrados simultáneamente en dos programas distintos del eje comunal. Es necesario validar la asistencia real para asegurar el impacto educativo.</p>
+<div class="flex gap-component-gap">
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-body-sm font-medium hover:opacity-90 transition-opacity flex items-center gap-unit">
+<span class="material-symbols-outlined text-[18px]">group_work</span> Consolidar registros
+                            </button>
+<button class="text-primary px-4 py-2 rounded-lg text-body-sm font-medium border border-outline-variant hover:bg-surface-variant transition-colors">Marcar como leído</button>
+</div>
+</div>
+</div>
+<!-- Educational Workshop Alert Item -->
+</div>
+<div class="px-container-padding py-4 bg-surface-container flex justify-center">
+<button class="text-body-sm font-semibold text-primary flex items-center gap-unit hover:underline">
+                    Ver más alertas educativas <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+<!-- Institutional Health Bento Section -->
+<div class="mt-section-margin grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-primary-container text-white rounded-xl p-container-padding flex items-center gap-container-padding relative overflow-hidden">
+<div class="z-10">
+<h4 class="text-title-sm font-title-sm mb-unit">Asistente de Impacto POA</h4>
+<p class="text-body-sm opacity-80 mb-4">He analizado los informes de impacto educativo de este mes. Se recomienda fortalecer la integración comunal en el Museo Arturo Michelena para mejorar el alcance pedagógico.</p>
+<button class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-2 rounded-lg text-body-sm font-bold">Informe de Impacto Educativo (IA)</button>
+</div>
+<div class="absolute right-[-20px] bottom-[-20px] opacity-10">
+<span class="material-symbols-outlined text-[120px]">smart_toy</span>
+</div>
+</div>
+<div class="bg-surface-container-high border border-outline-variant rounded-xl p-container-padding flex flex-col justify-center">
+<div class="flex items-center gap-container-padding">
+<div class="flex-1">
+<h4 class="text-title-sm font-title-sm text-primary mb-unit">Nivel de Integridad Pedagógica</h4>
+<div class="w-full bg-neutral-200 h-2 rounded-full mb-2">
+<div class="bg-on-tertiary-container h-2 rounded-full w-[94%]"></div>
+</div>
+<p class="text-body-sm text-on-surface-variant">94% de los talleres cumplen con el diseño curricular propuesto.</p>
+</div>
+<div class="w-16 h-16 rounded-full border-4 border-on-tertiary-container flex items-center justify-center">
+<span class="text-body-sm font-bold text-primary">94%</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant shadow-lg md:hidden z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 scale-95 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 scale-95 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-caps text-label-caps">Comunas</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-secondary-fixed bg-secondary-fixed-dim/20 rounded-xl p-2 scale-95 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-caps text-label-caps">Alertas</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 scale-95 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Ajustes</span>
+</div>
+</nav>
+</body></html>
